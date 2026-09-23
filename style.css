@@ -41,7 +41,7 @@ h1 {
 .subtitle {
     text-align: center;
     color: #00cc33;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-size: 0.9rem;
 }
 
@@ -49,24 +49,34 @@ h1 {
     content: '> ';
 }
 
-.btn-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
+/* Lista de sites */
+.sites-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
 }
 
-@media (max-width: 500px) {
-    .btn-grid {
-        grid-template-columns: 1fr;
-    }
+.sites-list .btn {
+    text-align: left;
+    padding: 12px 20px;
 }
 
+.sites-list .btn::before {
+    content: '> ';
+}
+.sites-list .btn::after {
+    content: '';
+}
+
+/* Botão base */
 .btn {
     display: block;
     text-align: center;
     padding: 14px 20px;
     background: rgba(0, 255, 65, 0.05);
     border: 1px solid #00ff41;
+    border-radius: 12px;
     color: #00ff41;
     text-decoration: none;
     font-family: 'Share Tech Mono', monospace;
@@ -81,36 +91,45 @@ h1 {
     box-shadow: 0 0 15px #00ff41, 0 0 30px rgba(0, 255, 65, 0.3);
 }
 
-.btn::before {
-    content: '[ ';
+/* IA - maior */
+.ai-section {
+    margin-bottom: 30px;
 }
-.btn::after {
-    content: ' ]';
+
+.btn-ai {
+    border-color: #00bfff;
+    color: #00bfff;
+    font-size: 1.4rem;
+    padding: 24px 30px;
+    border-radius: 16px;
+}
+
+.btn-ai:hover {
+    background: #00bfff;
+    color: #0a0a0a;
+    box-shadow: 0 0 20px #00bfff, 0 0 40px rgba(0, 191, 255, 0.3);
+}
+
+/* Ajuda */
+.help-section {
+    margin-bottom: 20px;
 }
 
 .btn-whatsapp {
     border-color: #25d366;
     color: #25d366;
+    border-radius: 12px;
 }
+
 .btn-whatsapp:hover {
     background: #25d366;
     color: #0a0a0a;
     box-shadow: 0 0 15px #25d366;
 }
 
-.btn-ai {
-    border-color: #00bfff;
-    color: #00bfff;
-}
-.btn-ai:hover {
-    background: #00bfff;
-    color: #0a0a0a;
-    box-shadow: 0 0 15px #00bfff;
-}
-
 .footer {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 20px;
     color: #006622;
     font-size: 0.8rem;
 }
