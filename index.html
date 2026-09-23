@@ -4,72 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scripts Sala do Futuro</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<canvas id="matrix"></canvas>
 
-        body {
-            background: #0a0a0a;
-            color: #00ff41;
-            font-family: 'Share Tech Mono', monospace;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+<div class="container">
+    <h1>Scripts Sala do Futuro</h1>
+    <p class="subtitle">selecione uma plataforma<span class="blink">_</span></p>
 
-        #matrix {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 0;
-            opacity: 0.15;
-        }
+    <div class="btn-grid">
+        <a class="btn" href="https://salvaestudante.com" target="_blank">Salva Estudante</a>
+        <a class="btn" href="https://zunder.lat" target="_blank">Zunder</a>
+        <a class="btn" href="https://doritus.cloud" target="_blank">Doritus</a>
+        <a class="btn btn-ai" href="#" target="_blank">Inteligência Artificial</a>
+        <a class="btn btn-whatsapp" href="https://wa.me/5512988428460?text=Ol%C3%A1%20Pedro%2C%20me%20ajude!" target="_blank">Dúvidas? Fale comigo</a>
+    </div>
 
-        .container {
-            position: relative;
-            z-index: 1;
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+    <p class="footer">[ sistema online ]</p>
+</div>
 
-        h1 {
-            text-align: center;
-            font-size: 2rem;
-            text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #00cc33;
-            margin-bottom: 40px;
-            font-size: 0.9rem;
-        }
-
-        .subtitle::before {
-            content: '> ';
-        }
-
-        .btn-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        @media (max-width: 500px) {
-            .btn-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .btn {
-            display: block;
-            text-align: center;
-            padding: 14px 20px;
-            backgroun   
+<script src="script.js"></script>
+</body>
+</html>   
