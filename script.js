@@ -1,3 +1,40 @@
+// ===== TELA DE BOOT =====
+const bootScreen = document.getElementById('boot-screen');
+const bootText = document.getElementById('boot-text');
+const mainContent = document.getElementById('main-content');
+
+const bootLines = [
+    'INICIALIZANDO SISTEMA...',
+    'CARREGANDO MÓDULOS...',
+    'ACESSO CONCEDIDO.',
+    ''
+];
+
+let lineIndex = 0;
+let charIndex = 0;
+
+function typeBoot() {
+    if (lineIndex < bootLines.length) {
+        const currentLine = bootLines[lineIndex];
+        if (charIndex < currentLine.length) {
+            bootText.textContent += currentLine[charIndex];
+            charIndex++;
+            setTimeout(typeBoot, 40);
+        } else {
+            bootText.textContent += '\n';
+            lineIndex++;
+            charIndex = 0;
+            setTimeout(typeBoot, 300);
+        }
+    } else {
+        bootScreen.classList.add('hidden');
+        setTimeout(() => bootScreen.remove(), 500);
+    }
+}
+
+setTimeout(typeBoot, 500);
+
+// ===== MATRIX RAIN =====
 const canvas = document.getElementById('matrix');
 const ctx = canvas.getContext('2d');
 
