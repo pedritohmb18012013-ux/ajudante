@@ -14,28 +14,61 @@ body {
     overflow-x: hidden;
 }
 
+/* ===== TELA DE BOOT ===== */
+#boot-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #0a0a0a;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease;
+}
+
+#boot-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#boot-text {
+    color: #00ff41;
+    font-size: 1rem;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ===== MATRIX ===== */
 #matrix {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
     z-index: 0;
-    opacity: 0.15;
+    opacity: 0.2;
 }
 
+/* ===== CONTAINER ===== */
 .container {
     position: relative;
     z-index: 1;
     max-width: 700px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 30px 16px;
 }
 
 h1 {
     text-align: center;
-    font-size: 2rem;
-    text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
+    font-size: 1.8rem;
+    text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 40px #00ff41;
     margin-bottom: 10px;
     letter-spacing: 2px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41; }
+    to { text-shadow: 0 0 15px #00ff41, 0 0 30px #00ff41, 0 0 50px #00ff41; }
 }
 
 .subtitle {
@@ -49,17 +82,18 @@ h1 {
     content: '> ';
 }
 
-/* Lista de sites */
+/* ===== LISTA DE SITES ===== */
 .sites-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 30px;
+    gap: 12px;
+    margin-bottom: 25px;
 }
 
 .sites-list .btn {
     text-align: left;
-    padding: 12px 20px;
+    padding: 16px 20px;
+    font-size: 1.05rem;
 }
 
 .sites-list .btn::before {
@@ -69,20 +103,25 @@ h1 {
     content: '';
 }
 
-/* Botão base */
+/* ===== BOTÃO BASE ===== */
 .btn {
     display: block;
     text-align: center;
-    padding: 14px 20px;
+    padding: 16px 20px;
     background: rgba(0, 255, 65, 0.05);
     border: 1px solid #00ff41;
-    border-radius: 12px;
+    border-radius: 14px;
     color: #00ff41;
     text-decoration: none;
     font-family: 'Share Tech Mono', monospace;
     font-size: 1rem;
     transition: all 0.3s ease;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn:active {
+    transform: scale(0.97);
 }
 
 .btn:hover {
@@ -91,26 +130,33 @@ h1 {
     box-shadow: 0 0 15px #00ff41, 0 0 30px rgba(0, 255, 65, 0.3);
 }
 
-/* IA - maior */
+/* ===== IA - MAIOR ===== */
 .ai-section {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .btn-ai {
     border-color: #00bfff;
     color: #00bfff;
-    font-size: 1.4rem;
-    padding: 24px 30px;
-    border-radius: 16px;
+    font-size: 1.5rem;
+    padding: 28px 30px;
+    border-radius: 18px;
+    border-width: 2px;
+    animation: pulse-ai 2s ease-in-out infinite;
+}
+
+@keyframes pulse-ai {
+    0%, 100% { box-shadow: 0 0 10px rgba(0, 191, 255, 0.3); }
+    50% { box-shadow: 0 0 25px rgba(0, 191, 255, 0.6), 0 0 50px rgba(0, 191, 255, 0.2); }
 }
 
 .btn-ai:hover {
     background: #00bfff;
     color: #0a0a0a;
-    box-shadow: 0 0 20px #00bfff, 0 0 40px rgba(0, 191, 255, 0.3);
+    box-shadow: 0 0 30px #00bfff, 0 0 60px rgba(0, 191, 255, 0.4);
 }
 
-/* Ajuda */
+/* ===== AJUDA ===== */
 .help-section {
     margin-bottom: 20px;
 }
@@ -118,18 +164,20 @@ h1 {
 .btn-whatsapp {
     border-color: #25d366;
     color: #25d366;
-    border-radius: 12px;
+    border-radius: 14px;
+    font-size: 1.05rem;
 }
 
 .btn-whatsapp:hover {
     background: #25d366;
     color: #0a0a0a;
-    box-shadow: 0 0 15px #25d366;
+    box-shadow: 0 0 15px #25d366, 0 0 30px rgba(37, 211, 102, 0.3);
 }
 
+/* ===== FOOTER ===== */
 .footer {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 25px;
     color: #006622;
     font-size: 0.8rem;
 }
@@ -139,4 +187,29 @@ h1 {
 }
 @keyframes blink {
     50% { opacity: 0; }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 20px 14px;
+    }
+
+    .btn {
+        padding: 18px 16px;
+        font-size: 1rem;
+    }
+
+    .sites-list .btn {
+        padding: 18px 16px;
+    }
+
+    .btn-ai {
+        font-size: 1.3rem;
+        padding: 24px 20px;
+    }
 }   
